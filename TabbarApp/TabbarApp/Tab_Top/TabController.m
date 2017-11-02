@@ -61,8 +61,19 @@
     //------------------------------------------------>
     // Remove the titles and adjust the inset to account for missing title
     for(UITabBarItem * tabBarItem in self.tabBar.items){
-        tabBarItem.title = @"";
-        tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+        tabBarItem.title = @"Todays Selection";
+        //tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+        
+        tabBarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+        [tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 0)];
+        [tabBarItem setTitleTextAttributes:@{ [UIFont fontWithName:@"HELVETICA-BOLD" size:10.0f] : NSFontAttributeName,
+                                              NSForegroundColorAttributeName : [UIColor redColor] }
+                                  forState:UIControlStateNormal];
+        
+        [tabBarItem setTitleTextAttributes:@{ [UIFont fontWithName:@"HELVETICA-BOLD" size:10.0f] : NSFontAttributeName,
+                                              NSForegroundColorAttributeName : [UIColor blackColor] }
+                                  forState:UIControlStateSelected];
         
         //Set Fefault Selected Image | Remove Default Tin Color
         tabBarItem.image = [tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
